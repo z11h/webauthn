@@ -2803,6 +2803,7 @@ Note: The {{CollectedClientData}} may be extended in the future. Therefore it's 
         required DOMString           origin;
         boolean                      crossOrigin;
         TokenBinding                 tokenBinding;
+        USVString                    txAuthSimple;
     };
 
     dictionary TokenBinding {
@@ -2854,6 +2855,9 @@ Note: The {{CollectedClientData}} may be extended in the future. Therefore it's 
         </div>
 
         Note: Obtaining a [=Token Binding ID=] is a [=client platform=]-specific operation.
+    :   <dfn>txAuthSimple</dfn>
+    ::  This optional member contains the transaction text that was displayed by the client and approved by the user, if the authenticator doesn't support the |txAuthSimple| extension.  Its absence
+        indicates the client didn't display the transaction text.
 
     The {{CollectedClientData}} structure is used by the client to compute the following quantities:
 
@@ -5322,7 +5326,8 @@ This extension allows for a simple form of transaction authorization. A
     </xmp>
 
 : Client extension processing
-:: None, except creating the authenticator extension input from the client extension input.
+:: 1. If |authenticator| supports this txAuthSimple extension, create the authenticator extension input from the client extension input.
+    1. If |authenticator| doesn't support this txAuthSimple extension, display the string txAuthSimple and get user confirmation to approve / reject it.  If the user approves it, add the txAuthSimple string to {{CollectedClientData/txAuthSimple}}.
 
 : Client extension output
 :: Returns the authenticator extension output string UTF-8 decoded into a USVString.
