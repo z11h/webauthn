@@ -3991,9 +3991,6 @@ a numbered step. If outdented, it (today) is rendered as a bullet in the midst o
 
             - |authenticatorData|
             - |signature|
-            - |transport|
-
-                    Note: the returned transport value may be `null`.
             - |selectedCredential|.[=public key credential source/userHandle=]
 
                     Note: the returned [=public key credential source/userHandle=] value may be `null`, see:
