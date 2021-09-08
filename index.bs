@@ -2208,7 +2208,7 @@ When this method is invoked, the user agent MUST execute the following algorithm
                 ::  whose value is the bytes of the signature value returned by the [=authenticator=].
 
                 :   <code><dfn for="assertionCreationData">transportResult</dfn></code>
-                ::  whose value is the {{DOMString}} of the transport value returned by the [=authenticator=]. Otherwise, set the value to 
+                ::  whose value is the transport used to communicate to the [=authenticator=]. Values SHOULD be members of {{AuthenticatorTransport}}. If the user agent does not have any transport information, set the value to 
                     null.
 
                 :   <code><dfn for="assertionCreationData">userHandleResult</dfn></code>
