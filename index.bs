@@ -3976,6 +3976,10 @@ When this method is invoked, the [=authenticator=] MUST perform the following pr
 1. If any error occurred while generating the [=assertion signature=], return an error code equivalent to "{{UnknownError}}" and
     terminate the operation.
 
+1. Let |platformAttachment| be <code>platform</code> or <code>cross-platform</code> based on the transport returned by authenticator following successful authentication. 
+    If transport is <code>null</code>, set |platformAttachment| to null. If transport is <code>internal</code>, then set |platformAttachment| to <code>platform</code>. 
+    Otherwise, set |platformAttachment| to <code>cross-platform</code>.
+
 <!-- Note: this next step is actually a top-level step, but bikeshed wanted it indented this much in order to render it as
 a numbered step. If outdented, it (today) is rendered as a bullet in the midst of a numbered list :-/
 -->
@@ -3991,6 +3995,11 @@ a numbered step. If outdented, it (today) is rendered as a bullet in the midst o
 
             - |authenticatorData|
             - |signature|
+            - |platformAttachment|
+
+                    Note: the returned [=platformAttachment=] value may be `null`, see:
+                        [=assertionCreationData/platformAttachmentResult=].
+
             - |selectedCredential|.[=public key credential source/userHandle=]
 
                     Note: the returned [=public key credential source/userHandle=] value may be `null`, see:
