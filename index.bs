@@ -2207,9 +2207,9 @@ When this method is invoked, the user agent MUST execute the following algorithm
                 :   <code><dfn for="assertionCreationData">signatureResult</dfn></code>
                 ::  whose value is the bytes of the signature value returned by the [=authenticator=].
 
-                :   <code><dfn for="assertionCreationData">transportResult</dfn></code>
-                ::  whose value is the transport used to communicate to the [=authenticator=]. Values SHOULD be members of {{AuthenticatorTransport}}. If the user agent does not have any transport information, set the value to 
-                    null.
+                :   <code><dfn for="assertionCreationData">platformAttachmentResult</dfn></code>
+                ::  whose value is the platform attachment type used to communicate to the [=authenticator=]. Values SHOULD be either "platform" or "cross-platform". If the user agent does not have any platform attachment information, 
+                    set the value to null.
 
                 :   <code><dfn for="assertionCreationData">userHandleResult</dfn></code>
                 ::  If the [=authenticator=] returned a [=user handle=], set the value of [=userHandleResult=] to be the bytes of
@@ -2438,7 +2438,7 @@ optionally evidence of [=user consent=] to a specific transaction.
     interface AuthenticatorAssertionResponse : AuthenticatorResponse {
         [SameObject] readonly attribute ArrayBuffer      authenticatorData;
         [SameObject] readonly attribute ArrayBuffer      signature;
-        [SameObject] readonly attribute DOMString?       transport;
+        [SameObject] readonly attribute DOMString?       platformAttachment;
         [SameObject] readonly attribute ArrayBuffer?     userHandle;
     };
 </xmp>
@@ -2455,9 +2455,9 @@ optionally evidence of [=user consent=] to a specific transaction.
     :   <dfn>signature</dfn>
     ::  This attribute contains the raw signature returned from the authenticator. See [[#sctn-op-get-assertion]].
 
-    :   <dfn>transport</dfn>
-    ::  This attribute contains the transport used to communicate to the [=authenticator=], or `null` if the user agent does not have any transport information.
-        See [[#sctn-op-get-assertion]].
+    :   <dfn>platformAttachment</dfn>
+    ::  This attribute contains the platform attachment used to communicate to the [=authenticator=], or `null` if the user agent does not have any attachment information.
+        See [[#sctn-authenticator-attachment-modality]].
 
     :   <dfn>userHandle</dfn>
     ::  This attribute contains the [=user handle=] returned from the authenticator, or null if the authenticator did not return a
