@@ -2246,10 +2246,10 @@ When this method is invoked, the user agent MUST execute the following algorithm
                         ::  A new {{ArrayBuffer}}, created using |global|'s [=%ArrayBuffer%=], containing the bytes of
                             <code>|assertionCreationData|.[=assertionCreationData/signatureResult=]</code>.
 
-                        :   {{AuthenticatorAssertionResponse/transport}}
-                        ::  If <code>|assertionCreationData|.[=assertionCreationData/transportResult=]</code> is null, set this
+                        :   {{AuthenticatorAssertionResponse/platformAttachment}}
+                        ::  If <code>|assertionCreationData|.[=assertionCreationData/platformAttachmentResult=]</code> is null, set this
                             field to null. Otherwise, set this field to a new {{DOMString}}, containing the value of
-                            <code>|assertionCreationData|.[=assertionCreationData/transportResult=]</code>.
+                            <code>|assertionCreationData|.[=assertionCreationData/platformAttachmentResult=]</code>.
 
                         :   {{AuthenticatorAssertionResponse/userHandle}}
                         ::  If <code>|assertionCreationData|.[=assertionCreationData/userHandleResult=]</code> is null, set this
