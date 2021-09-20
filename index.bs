@@ -3997,11 +3997,6 @@ a numbered step. If outdented, it (today) is rendered as a bullet in the midst o
 
             - |authenticatorData|
             - |signature|
-            - |authenticatorAttachment|
-
-                    Note: the returned [=authenticatorAttachment=] value may be `null`, see:
-                        [=assertionCreationData/authenticatorAttachmentResult=].
-
             - |selectedCredential|.[=public key credential source/userHandle=]
 
                     Note: the returned [=public key credential source/userHandle=] value may be `null`, see:
